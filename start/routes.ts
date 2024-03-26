@@ -7,8 +7,8 @@
 |
 */
 
-import { LanguageTextsDictionary } from '#types/global'
 import router from '@adonisjs/core/services/router'
+import { LanguageTextsDictionary } from '../resources/types/global.js'
 
 router.get('/', async ({ inertia, i18n }) => {
   const homeTexts = {
