@@ -6,6 +6,7 @@
     "jsx": "react-jsx",
     "paths": {
       "~/*": ["../*"],
+      "#shadcn/*": ["./components/ui/*"],
     },
   },
   "include": ["./**/*.ts", "./**/*.tsx"],

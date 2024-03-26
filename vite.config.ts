@@ -18,6 +18,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${getDirname(import.meta.url)}/inertia/`,
+      '#shadcn': `${getDirname(import.meta.url)}/inertia/components/ui/`,
     },
   },
 })
