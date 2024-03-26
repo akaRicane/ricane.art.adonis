@@ -31,7 +31,7 @@
     "#start/*": "./start/*.js",
     "#config/*": "./config/*.js",
     "#shadcn/*": "./inertia/components/ui/*",
-    "#types/*": "./ressources/types/*"
+    "#types/*": "./resources/types/*"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.2.3",

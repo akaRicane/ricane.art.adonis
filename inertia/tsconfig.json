@@ -7,7 +7,7 @@
     "paths": {
       "~/*": ["../*"],
       "#shadcn/*": ["./components/ui/*"],
-      "#types/*": ["./ressources/types/*"]
+      "#types/*": ["../resources/types/*"]
     }
   },
   "include": ["./**/*.ts", "./**/*.tsx"]

@@ -21,7 +21,7 @@
       "#start/*": ["./start/*.js"],
       "#config/*": ["./config/*.js"],
       "#shadcn/*": ["./inertia/components/ui/*"],
-      "#types/*": ["./ressources/types/*"]
+      "#types/*": ["./resources/types/*"]
     }
   },
   "exclude": ["./inertia/**/*"]
