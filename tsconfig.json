@@ -20,6 +20,7 @@
       "#tests/*": ["./tests/*.js"],
       "#start/*": ["./start/*.js"],
       "#config/*": ["./config/*.js"],
+      "#components/*": ["./components/*"],
       "#shadcn/*": ["./inertia/components/ui/*"],
       "#types/*": ["./resources/types/*"]
     }

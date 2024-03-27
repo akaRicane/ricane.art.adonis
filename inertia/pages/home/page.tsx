@@ -1,31 +1,15 @@
+import { AboutResponsiveDrawer } from '#components/about_responsive_drawer.js'
+import useIsDesktop from '#components/hooks/use_is_desktop'
 import { LanguageTextsDictionary } from '#types/global'
 import { Head } from '@inertiajs/react'
-import React from 'react'
-import { AboutResponsiveDrawer } from './components/about_responsive_drawer'
 import { InteractiveHomeContent } from './components/home_interactive_body_content'
 
 export default function Home(props: {
   homeTexts: LanguageTextsDictionary
   aboutTexts: LanguageTextsDictionary
 }) {
-  const [isDesktop, setIsDesktop] = React.useState(false)
+  const isDesktop = useIsDesktop()
 
-  React.useEffect(() => {
-    handleResize()
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
-  const handleResize = () => {
-    if (window.innerWidth > 768) {
-      setIsDesktop(true)
-    } else {
-      setIsDesktop(false)
-    }
-  }
   return (
     <>
       <Head title="Homepage" />
