@@ -20,3 +20,9 @@ router.get('/', async ({ inertia, i18n }) => {
 
   return await inertia.render('home/page', { homeTexts, aboutTexts })
 })
+
+router.get('/music', async ({ inertia, i18n }) => {
+  const aboutTextsService = new AboutTextsService()
+  const aboutTexts = aboutTextsService.getContent(i18n)
+  return await inertia.render('music/page', { aboutTexts })
+})
