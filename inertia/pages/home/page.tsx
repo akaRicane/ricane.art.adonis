@@ -9,7 +9,6 @@ export default function Home(props: {
   aboutTexts: LanguageTextsDictionary
 }) {
   const [isDesktop, setIsDesktop] = React.useState(false)
-  const [isLandscape, setIsLandscape] = React.useState(false)
 
   React.useEffect(() => {
     handleResize()
@@ -26,11 +25,6 @@ export default function Home(props: {
     } else {
       setIsDesktop(false)
     }
-    if (window.innerWidth > window.innerHeight) {
-      setIsLandscape(true)
-    } else {
-      setIsLandscape(false)
-    }
   }
   return (
     <>
@@ -38,13 +32,16 @@ export default function Home(props: {
 
       <div className="flex flex-col self-center justify-center w-screen h-screen bg-white">
         {/* Header */}
-        <header className="flex flex-row items-center justify-center w-screen h-12 bg-red-500">
-          {isDesktop && (
-            <AboutResponsiveDrawer isDesktop={isDesktop} aboutTexts={props.aboutTexts} />
-          )}
+        <header className="flex flex-row items-center justify-center w-screen h-12 px-4">
+          <p className="w-1/2">ricane.art</p>
+          <div className="flex justify-end w-1/2">
+            {isDesktop && (
+              <AboutResponsiveDrawer isDesktop={isDesktop} aboutTexts={props.aboutTexts} />
+            )}
+          </div>
         </header>
         {/* Body */}
-        <div className="flex-grow w-full px-6 py-2 my-2 bg-yellow-300">
+        <div className="flex-grow w-full px-6 py-2 my-2">
           <InteractiveHomeContent isDesktop={isDesktop} contentTexts={props.homeTexts} />
         </div>
         {/* Footer */}

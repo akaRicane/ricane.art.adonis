@@ -33,7 +33,7 @@ export const AboutResponsiveDrawer = (props: {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">{aboutTexts.about_drawer}</Button>
+          <Button variant="ghost">{aboutTexts.about_drawer}</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>

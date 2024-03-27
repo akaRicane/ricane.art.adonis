@@ -27,7 +27,7 @@ export const InteractiveHomeContent = (props: {
   ] as ContentProvder
 
   return (
-    <div ref={homeContentRef} className="flex flex-col items-center w-full h-full bg-fuchsia-200">
+    <div ref={homeContentRef} className="flex flex-col items-center w-full h-full ">
       {props.isDesktop ? (
         <ContentAsCarousel content={contentTemplate} />
       ) : (
@@ -64,26 +64,26 @@ const ContentAsCarousel = (props: { content: ContentProvder }) => {
 
   return (
     <>
-      <div className="h-full px-12 mx-2 bg-red-500">
+      <div className="h-full px-12 mx-2 ">
         <Carousel
-          className="flex items-center h-full bg-fuchsia-500"
+          className="flex items-center h-full"
           opts={{ align: 'start', loop: true }}
           orientation={'horizontal'}
           setApi={setApi}
           plugins={[plugin.current]}
         >
-          <CarouselContent className="bg-red-500">
+          <CarouselContent className="">
             {props.content.map((content: CarouselCard, index) => (
-              <CarouselItem key={index} className="bg-blue-800">
+              <CarouselItem key={index} className="">
                 <Card className="bg-blue-300 h-max">
-                  <CardHeader className="bg-blue-500">
+                  <CardHeader className="">
                     <CardTitle>{content.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="flex flex-col items-center justify-center h-full">
                     <span className="h-full">{content.body}</span>
                   </CardContent>
-                  <CardFooter className="flex flex-col items-center justify-center bg-blue-100">
-                    <span className="flex self-center bg-fuchsia-200">visit {content.title}</span>
+                  <CardFooter className="flex flex-col self-center justify-center ">
+                    <span>visit {content.title}</span>
                   </CardFooter>
                 </Card>
               </CarouselItem>
@@ -103,20 +103,17 @@ const ContentAsCarousel = (props: { content: ContentProvder }) => {
 const ContentAsAccordion = (props: { content: ContentProvder }) => {
   const [openItem, setOpenItem] = React.useState('item-0')
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full">
+    <div className="flex flex-col items-center justify-center w-full h-full px-6">
       <Accordion type="single" className="w-full" value={openItem}>
         {props.content.map((content: CarouselCard, index) => (
-          <AccordionItem key={index} value={`item-${index}`} className="w-full">
-            <AccordionTrigger className="bg-blue-500 " onClick={() => setOpenItem(`item-${index}`)}>
+          <AccordionItem key={index} value={`item-${index}`} className="w-full bg-blue-300">
+            <AccordionTrigger className="" onClick={() => setOpenItem(`item-${index}`)}>
               {content.title}
             </AccordionTrigger>
-            <AccordionContent className="bg-blue-300 ">
+            <AccordionContent className="">
               <div className="flex flex-col items-center">
                 <p className="font-extralight">{content.body}</p>
-                <Button
-                  className="flex justify-center w-1/2 h-full bg-gray-500 rounded-md"
-                  variant={'ghost'}
-                >
+                <Button className="flex justify-center w-1/2 h-fullrounded-md" variant={'ghost'}>
                   visit {content.title}
                 </Button>
               </div>
