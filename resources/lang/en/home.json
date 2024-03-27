@@ -3,5 +3,16 @@
   "about_drawer_title": "Website made by akaRicane",
   "about_drawer_body": "The goal is to let you know more about me ! Do not hesitate to come and check my content and socials.",
   "about_drawer_back": "Back",
-  "hero_welcome": "Welcome to ricane.art! Explore my dynamic realm, where music, programming, and art collide. Dive into melodic beats and digital innovations across the Music and Projects sections, or uncover the essence of Ricane in the Who Am I page. Embark on a journey where creativity knows no bounds, curated by the composer, producer, DJ, audio engineer, and programmer behind the scenes. Discover, experience, and immerse yourself in my eclectic world."
+  "me_title": "Me",
+  "me_link": "more about me",
+  "me_body": "some more details about me",
+  "music_title": "Music",
+  "music_body": "some more details about music",
+  "music_link": "more about my music",
+  "projects_title": "Projects",
+  "projects_body": "some more details about my projects",
+  "projects_link": "more about my projects",
+  "welcome_title": "Welcome to ricane.art!",
+  "welcome_body": "Explore my dynamic realm, where music, programming, and art collide. Dive into melodic beats and digital innovations across the Music and Projects sections, or uncover the essence of Ricane in the Who Am I page. Embark on a journey where creativity knows no bounds, curated by the composer, producer, DJ, audio engineer, and programmer behind the scenes. Discover, experience, and immerse yourself in my eclectic world.",
+  "welcome_link": "back to homepage"
 }

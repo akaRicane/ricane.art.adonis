@@ -22,8 +22,22 @@ export const InteractiveHomeContent = (props: {
 
   const contentTexts = props.contentTexts
   const contentTemplate = [
-    { title: 'ricane.art', body: contentTexts.hero_welcome },
-    { title: 'music', body: contentTexts.hero_welcome },
+    {
+      title: contentTexts.welcome_title,
+      link: contentTexts.welcome_link,
+      body: contentTexts.welcome_body,
+    },
+    {
+      title: contentTexts.music_title,
+      link: contentTexts.music_link,
+      body: contentTexts.music_body,
+    },
+    {
+      title: contentTexts.projects_title,
+      link: contentTexts.projects_link,
+      body: contentTexts.projects_body,
+    },
+    { title: contentTexts.me_title, link: contentTexts.me_link, body: contentTexts.me_body },
   ] as ContentProvder
 
   return (
@@ -42,6 +56,7 @@ type ContentProvder = CarouselCard[]
 interface CarouselCard {
   title: string
   body: string
+  link: string
 }
 
 const ContentAsCarousel = (props: { content: ContentProvder }) => {
@@ -63,40 +78,38 @@ const ContentAsCarousel = (props: { content: ContentProvder }) => {
   }, [api])
 
   return (
-    <>
-      <div className="h-full px-12 mx-2 ">
-        <Carousel
-          className="flex items-center h-full"
-          opts={{ align: 'start', loop: true }}
-          orientation={'horizontal'}
-          setApi={setApi}
-          plugins={[plugin.current]}
-        >
-          <CarouselContent className="">
-            {props.content.map((content: CarouselCard, index) => (
-              <CarouselItem key={index} className="">
-                <Card className="bg-blue-300 h-max">
-                  <CardHeader className="">
-                    <CardTitle>{content.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex flex-col items-center justify-center h-full">
-                    <span className="h-full">{content.body}</span>
-                  </CardContent>
-                  <CardFooter className="flex flex-col self-center justify-center ">
-                    <span>visit {content.title}</span>
-                  </CardFooter>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-      <div className="flex items-center h-12 text-sm text-center text-muted-foreground">
-        Slide {current} of {count}
-      </div>
-    </>
+    <div className="w-full h-full px-12 mx-2 ">
+      <Carousel
+        className="flex items-center h-full"
+        opts={{ align: 'start', loop: true }}
+        orientation={'horizontal'}
+        setApi={setApi}
+        plugins={[plugin.current]}
+      >
+        <CarouselContent className="">
+          {props.content.map((content: CarouselCard, index) => (
+            <CarouselItem key={index} className="">
+              <Card className="bg-blue-300 h-max">
+                <CardHeader className="flex flex-row items-center ">
+                  <CardTitle className="w-4/5 ">{content.title}</CardTitle>
+                  <span className="flex justify-end w-1/5">
+                    {current} / {count}
+                  </span>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-full">
+                  <span className="h-full">{content.body}</span>
+                </CardContent>
+                <CardFooter className="flex flex-col self-center justify-center ">
+                  <Button variant="ghost">{content.link}</Button>
+                </CardFooter>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
   )
 }
 
@@ -114,7 +127,7 @@ const ContentAsAccordion = (props: { content: ContentProvder }) => {
               <div className="flex flex-col items-center">
                 <p className="font-extralight">{content.body}</p>
                 <Button className="flex justify-center w-1/2 h-fullrounded-md" variant={'ghost'}>
-                  visit {content.title}
+                  {content.link}
                 </Button>
               </div>
             </AccordionContent>
