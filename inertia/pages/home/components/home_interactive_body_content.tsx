@@ -22,14 +22,12 @@ export const InteractiveHomeContent = (props: {
 
   const contentTexts = props.contentTexts
   const contentTemplate = [
-    { title: 'Welcome', body: contentTexts.hero_welcome },
-    { title: 'Card 2', body: contentTexts.hero_welcome },
-  ] as CarouselContentProvder
+    { title: 'ricane.art', body: contentTexts.hero_welcome },
+    { title: 'music', body: contentTexts.hero_welcome },
+  ] as ContentProvder
 
   return (
     <div ref={homeContentRef} className="flex flex-col items-center w-full h-full bg-fuchsia-200">
-      {/* <p>isDesktop: {isDesktop.toString()}</p>
-      <p>isLandscape: {isLandscape.toString()}</p> */}
       {props.isDesktop ? (
         <ContentAsCarousel content={contentTemplate} />
       ) : (
@@ -39,14 +37,14 @@ export const InteractiveHomeContent = (props: {
   )
 }
 
-type CarouselContentProvder = CarouselCard[]
+type ContentProvder = CarouselCard[]
 
 interface CarouselCard {
   title: string
   body: string
 }
 
-const ContentAsCarousel = (props: { content: CarouselContentProvder }) => {
+const ContentAsCarousel = (props: { content: ContentProvder }) => {
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
   const [count, setCount] = React.useState(0)
@@ -102,13 +100,13 @@ const ContentAsCarousel = (props: { content: CarouselContentProvder }) => {
   )
 }
 
-const ContentAsAccordion = (props: { content: CarouselContentProvder }) => {
+const ContentAsAccordion = (props: { content: ContentProvder }) => {
   const [openItem, setOpenItem] = React.useState('item-0')
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       <Accordion type="single" className="w-full" value={openItem}>
         {props.content.map((content: CarouselCard, index) => (
-          <AccordionItem value={`item-${index}`} className="w-full">
+          <AccordionItem key={index} value={`item-${index}`} className="w-full">
             <AccordionTrigger className="bg-blue-500 " onClick={() => setOpenItem(`item-${index}`)}>
               {content.title}
             </AccordionTrigger>
