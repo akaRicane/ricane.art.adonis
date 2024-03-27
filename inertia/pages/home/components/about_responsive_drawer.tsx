@@ -20,15 +20,16 @@ import {
   DrawerTrigger,
 } from '#shadcn/drawer'
 import { LanguageTextsDictionary } from '#types/global'
-import { useMediaQuery } from 'usehooks-ts'
 
-export const AboutResponsiveDrawer = (props: { aboutTexts: LanguageTextsDictionary }) => {
+export const AboutResponsiveDrawer = (props: {
+  isDesktop: boolean
+  aboutTexts: LanguageTextsDictionary
+}) => {
   const [open, setOpen] = React.useState(false)
-  const isDesktop = useMediaQuery('(min-width: 768px)')
 
   const aboutTexts = props.aboutTexts
 
-  if (isDesktop) {
+  if (props.isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
@@ -47,7 +48,7 @@ export const AboutResponsiveDrawer = (props: { aboutTexts: LanguageTextsDictiona
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button className="border-0 w-1/2" variant="ghost">
+        <Button className="w-1/2 border-0" variant="ghost">
           {aboutTexts.about_drawer}
         </Button>
       </DrawerTrigger>
